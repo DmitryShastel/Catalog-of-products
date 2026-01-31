@@ -1,0 +1,14 @@
+/* Header.module.css */
+.header {
+    background-color: #535bf2;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
