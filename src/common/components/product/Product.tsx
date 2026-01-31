@@ -1,17 +1,22 @@
 import styles from "../product/product.module.css";
 import {useProductsStore} from "./stote/useProductsStore";
 import {useEffect} from "react";
+import {Loader} from "../../../shared/components/ui/loader/Loader";
 
 
 export const Product = () => {
 
-    const {products, fetchProducts} = useProductsStore()
+    const {products, fetchProducts, isLoading} = useProductsStore()
 
     useEffect(() => {
         fetchProducts().catch(error => {
             console.error("Failed to fetch products:", error)
         })
     }, [])
+
+    if (isLoading) {
+        return <Loader />;
+    }
 
     return (
         <div className={styles.content}>
