@@ -1,5 +1,5 @@
 import styles from './header.module.css'
-import {ThemeToggle} from "../../../features/ThemeToggle/ThemeToggle";
+import {ThemeToggle} from "../../../features/themeToggle/ThemeToggle";
 import {Input} from "../../../shared/components/ui/input/Input";
 
 export const Header = () => {
