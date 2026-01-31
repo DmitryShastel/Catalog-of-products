@@ -1,5 +1,6 @@
 import styles from './header.module.css'
 import {ThemeToggle} from "../../../features/ThemeToggle/ThemeToggle";
+import {Input} from "../../../shared/components/ui/input/Input";
 
 export const Header = () => {
     return (
@@ -7,9 +8,8 @@ export const Header = () => {
             <div className={styles.title}>
                 Catalog of products
             </div>
-            <nav>
-                <ThemeToggle/>
-            </nav>
+            <Input/>
+            <ThemeToggle/>
         </header>
     );
 };
