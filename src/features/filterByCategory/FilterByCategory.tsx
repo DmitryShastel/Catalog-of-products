@@ -7,7 +7,7 @@ export const FilterByCategory = ({categories}: FilterByCategoryProps) => {
 
     return (
         <div className={styles.container}>
-            <h4 className={styles.title}>Filter by category:</h4>
+            <h4>Filter by category:</h4>
 
             <div className={styles.categoriesList}>
                 {categories.map((category, index) => (
