@@ -1,16 +1,22 @@
 import styles from './shopCart.module.css';
 import {ShopCartItem} from "../shopCartItem/ShopCartItem";
 import {useCartItemActions} from "../shopCartItem/hooks/useCartItemActions";
+import {useNavigate} from "react-router";
 
 
 export const ShopCart = () => {
+    const navigate = useNavigate()
 
     const {cartItems, removeItem, increaseQuantity, decreaseQuantity, totalPrice} = useCartItemActions()
+
+    const handleCatalogBack = () => {
+        navigate('/', {replace: true})
+    }
 
     return (
         <div className={styles.cartContainer}>
             <div className={styles.header}>
-                 <button>Back</button>
+                 <button onClick={handleCatalogBack}>Back</button>
             <h2 className={styles.cartTitle}>🛒 Shopping Cart</h2>
             </div>
 
