@@ -5,6 +5,7 @@ import {type Categories} from "../../../features/filterByCategory/type/FilterByC
 import {FilterByPrice} from "../../../features/filterByPrice/FilterByPrice";
 import styles from "./main.module.css";
 import {Pagination} from "../../../features/pagination/Pagination";
+import {ShopCart} from "../shopCart/ShopCart";
 
 
 export const Main = () => {
@@ -23,10 +24,11 @@ export const Main = () => {
                 <FilterByCategory categories={categories}/>
                 <FilterByPrice/>
             </div>
-            <Product/>
-            <div className={styles.pagination}>
-                <Pagination/>
-            </div>
+            {/*<Product/>*/}
+            <ShopCart/>
+            {/*<div className={styles.pagination}>*/}
+            {/*    <Pagination/>*/}
+            {/*</div>*/}
         </div>
     );
 };

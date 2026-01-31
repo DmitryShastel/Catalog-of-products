@@ -1,6 +1,7 @@
 import styles from './header.module.css'
 import {ThemeToggle} from "../../../features/themeToggle/ThemeToggle";
 import {Input} from "../../../shared/components/ui/input/Input";
+import {ShopCart} from "../shopCart/ShopCart";
 
 export const Header = () => {
     return (
