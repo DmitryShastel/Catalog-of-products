@@ -45,11 +45,13 @@ a:hover {
   color: color-mix(in srgb, var(--primary-color) 80%, white);
 }
 
-body {
+html, body  {
   margin: 0;
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-y: scroll;
+  scrollbar-width: none;
 }
 
 h1 {
