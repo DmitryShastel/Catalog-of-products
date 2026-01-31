@@ -1,0 +1,36 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.pagination button {
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: white;
+    cursor: pointer;
+}
+
+.pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination span {
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .pagination-simple {
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .pagination-simple button {
+        padding: 6px 12px;
+    }
+}

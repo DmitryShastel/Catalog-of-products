@@ -5,3 +5,10 @@
     padding: 10px 20px 10px 20px;
     border-bottom: 1px solid #eee;
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 15px;
+}

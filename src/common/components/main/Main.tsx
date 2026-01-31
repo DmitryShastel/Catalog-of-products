@@ -4,6 +4,7 @@ import { FilterByCategory} from "../../../features/filterByCategory/FilterByCate
 import {type Categories} from "../../../features/filterByCategory/type/FilterByCategory";
 import {FilterByPrice} from "../../../features/filterByPrice/FilterByPrice";
 import styles from "./main.module.css";
+import {Pagination} from "../../../features/pagination/Pagination";
 
 
 export const Main = () => {
@@ -23,7 +24,9 @@ export const Main = () => {
                 <FilterByPrice/>
             </div>
             <Product/>
-            <div>pagination</div>
+            <div className={styles.pagination}>
+                <Pagination/>
+            </div>
         </div>
     );
 };
