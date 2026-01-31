@@ -12,8 +12,59 @@
     font-weight: bold;
 }
 
+.cart {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.cartButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    position: relative;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cartIcon {
+    font-size: 24px;
+}
+
+.cartCount {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #ff4444;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @media (max-width: 768px) {
     .title {
         display: none;
+    }
+    .cart {
+        order: 2;
+    }
+
+    .cartIcon {
+        font-size: 20px;
+    }
+
+    .cartCount {
+        width: 18px;
+        height: 18px;
+        font-size: 10px;
     }
 }

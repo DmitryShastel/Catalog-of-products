@@ -1,9 +1,12 @@
 import styles from './header.module.css'
 import {ThemeToggle} from "../../../features/themeToggle/ThemeToggle";
 import {Input} from "../../../shared/components/ui/input/Input";
-import {ShopCart} from "../shopCart/ShopCart";
 
 export const Header = () => {
+
+    const cartItemsCount = 5;
+
+
     return (
         <header className={styles.header}>
             <div className={styles.title}>
@@ -11,6 +14,14 @@ export const Header = () => {
             </div>
             <Input/>
             <ThemeToggle/>
+            <div className={styles.cart}>
+            <button className={styles.cartButton}>
+                <span className={styles.cartIcon}>🛒</span>
+                {cartItemsCount > 0 && (
+                    <span className={styles.cartCount}>{cartItemsCount}</span>
+                )}
+            </button>
+        </div>
         </header>
     );
 };

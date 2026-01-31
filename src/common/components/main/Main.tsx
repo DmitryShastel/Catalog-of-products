@@ -1,11 +1,10 @@
 import {Header} from "../header/Header";
 import {Product} from "../product/Product";
-import { FilterByCategory} from "../../../features/filterByCategory/FilterByCategory";
+import {FilterByCategory} from "../../../features/filterByCategory/FilterByCategory";
 import {type Categories} from "../../../features/filterByCategory/type/FilterByCategory";
 import {FilterByPrice} from "../../../features/filterByPrice/FilterByPrice";
 import styles from "./main.module.css";
 import {Pagination} from "../../../features/pagination/Pagination";
-import {ShopCart} from "../shopCart/ShopCart";
 
 
 export const Main = () => {
@@ -24,11 +23,10 @@ export const Main = () => {
                 <FilterByCategory categories={categories}/>
                 <FilterByPrice/>
             </div>
-            {/*<Product/>*/}
-            <ShopCart/>
-            {/*<div className={styles.pagination}>*/}
-            {/*    <Pagination/>*/}
-            {/*</div>*/}
+            <Product/>
+            <div className={styles.pagination}>
+                <Pagination/>
+            </div>
         </div>
     );
 };
