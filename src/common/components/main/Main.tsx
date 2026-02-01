@@ -11,7 +11,7 @@ import {useSearchProducts} from "../header/hooks/useSearchProducts";
 
 export const Main = () => {
     const [currentPage, setCurrentPage] = useState<number>(1)
-    const {products, searchItem, getSortedProducts} = useProductsStore()
+    const {searchItem, getSortedProducts} = useProductsStore()
     const productsPerPage = 12
     const sortedProducts = getSortedProducts()
     const filteredProducts = useSearchProducts(sortedProducts, searchItem)

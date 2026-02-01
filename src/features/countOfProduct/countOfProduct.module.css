@@ -1,0 +1,92 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    width: 120px; /* Примерно как кнопка Add to cart */
+    height: 40px; /* Высота как у стандартной кнопки */
+    margin: 8px auto 0; /* Отступ сверху как у кнопки Add to cart */
+}
+
+.button {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.addButton{
+    width: 100%;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.button:hover:not(:disabled) {
+    background: #0056b3;
+}
+
+.button:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+}
+
+.button:active:not(:disabled) {
+    background: #004085;
+    transform: scale(0.95);
+}
+
+.input {
+    width: 40px;
+    height: 32px;
+    text-align: center;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    outline: none;
+    padding: 0;
+}
+
+.input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .container {
+        width: 110px;
+        height: 36px;
+    }
+
+    .button {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+    }
+
+    .input {
+        width: 36px;
+        height: 28px;
+        font-size: 13px;
+    }
+}
