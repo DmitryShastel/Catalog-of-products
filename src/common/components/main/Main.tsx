@@ -1,19 +1,25 @@
 import {Product} from "../product/Product";
 import {FilterByCategory} from "../../../features/filterByCategory/FilterByCategory";
-import {type Categories} from "../../../features/filterByCategory/type/FilterByCategory";
 import {FilterByPrice} from "../../../features/filterByPrice/FilterByPrice";
 import styles from "./main.module.css";
 import {Pagination} from "../../../features/pagination/Pagination";
+import {categories} from "../../../shared/data/productCategories/ProductCategories";
+import {useState} from "react";
+import {useProductsStore} from "../product/stote/useProductsStore";
 
 
 export const Main = () => {
+    const [currentPage, setCurrentPage] = useState<number>(1)
+    const {products} = useProductsStore()
+    const productsPerPage = 12
 
-    const categories: Categories = [
-        "electronics",
-        "jewelery",
-        "men's clothing",
-        "women's clothing"
-    ];
+    console.log(products)
+
+    const totalPages = Math.ceil(products.length / productsPerPage)
+
+    const handelPageChange = (nextPage: number) => {
+        setCurrentPage(nextPage)
+    }
 
     return (
         <div>
@@ -21,10 +27,19 @@ export const Main = () => {
                 <FilterByCategory categories={categories}/>
                 <FilterByPrice/>
             </div>
-            <Product/>
-            <div className={styles.pagination}>
-                <Pagination/>
-            </div>
+            <Product
+                currentPage={currentPage}
+                productsPerPage={productsPerPage}
+            />
+            {products.length > productsPerPage && (
+                <div className={styles.pagination}>
+                    <Pagination
+                        totalPages={totalPages}
+                        currentPage={currentPage}
+                        handelPageChange={handelPageChange}
+                    />
+                </div>
+            )}
         </div>
     );
 };

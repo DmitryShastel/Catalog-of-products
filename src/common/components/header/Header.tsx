@@ -11,9 +11,7 @@ export const Header = () => {
         navigate('/cart', {replace: true})
     }
 
-
     const cartItemsCount = 5;
-
 
     return (
         <header className={styles.header}>

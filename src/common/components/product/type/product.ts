@@ -12,3 +12,8 @@ export type Product  = {
     image: string
     rating: Rating
 }
+
+export type ProductPagination = {
+    currentPage: number
+    productsPerPage: number
+}

@@ -1,23 +1,21 @@
-import { useState } from 'react';
+import {type PaginationProps} from "./type/Pagination";
 
-export const Pagination = () => {
-    const [page, setPage] = useState<number>(1);
-    const totalPages = 10;
+export const Pagination = ({handelPageChange, totalPages, currentPage}: PaginationProps) => {
 
     return (
         <div className="pagination">
             <button
-                disabled={page === 1}
-                onClick={() => setPage(page - 1)}
+                disabled={currentPage === 1}
+                onClick={() => handelPageChange(currentPage - 1)}
             >
                 ←
             </button>
 
-            <span>Page {page} of {totalPages}</span>
+            <span>Page {currentPage} of {totalPages}</span>
 
             <button
-                disabled={page === totalPages}
-                onClick={() => setPage(page + 1)}
+                disabled={currentPage === totalPages}
+                onClick={() => handelPageChange(currentPage + 1)}
             >
                 →
             </button>

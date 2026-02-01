@@ -2,9 +2,10 @@ import styles from "../product/product.module.css";
 import {useProductsStore} from "./stote/useProductsStore";
 import {useEffect} from "react";
 import {Loader} from "../../../shared/components/ui/loader/Loader";
+import {type ProductPagination} from "./type/product";
 
 
-export const Product = () => {
+export const Product = ({currentPage, productsPerPage= 12}: ProductPagination) => {
 
     const {products, fetchProducts, isLoading} = useProductsStore()
 
@@ -13,14 +14,19 @@ export const Product = () => {
             console.error("Failed to fetch products:", error)
         })
     }, [])
+    console.log(products)
 
     if (isLoading) {
         return <Loader />;
     }
 
+    const indexOfLastProduct = currentPage * productsPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+    const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
+
     return (
         <div className={styles.content}>
-            {products.map(product => (
+            {currentProducts.map(product => (
                 <div key={product.id} className={styles.productCard}>
                     <img
                         src={product.image}
