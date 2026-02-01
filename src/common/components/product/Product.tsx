@@ -12,7 +12,7 @@ export const Product = ({
                             searchItem
 }: ProductPagination) => {
 
-    const {fetchProducts, isLoading} = useProductsStore()
+    const {fetchProducts, isLoading, selectedCategory} = useProductsStore()
 
     useEffect(() => {
         fetchProducts().catch(error => {
@@ -29,6 +29,15 @@ export const Product = ({
             <div className={styles.noProducts}>
                 <h3>No products found for "{searchItem}"</h3>
                 <p>Try adjusting your search or filter to find what you're looking for.</p>
+            </div>
+        );
+    }
+
+    if (selectedCategory && filteredProducts.length === 0) {
+        return (
+            <div className={styles.noProducts}>
+                <h3>No products found in "{selectedCategory}" category</h3>
+                <p>Try selecting a different category.</p>
             </div>
         );
     }

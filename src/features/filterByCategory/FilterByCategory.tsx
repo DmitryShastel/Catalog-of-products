@@ -1,9 +1,9 @@
-import {useState} from "react";
 import styles from './filterBycategory.module.css'
 import {type FilterByCategoryProps} from './type/FilterByCategory'
+import {useProductsStore} from "../../common/components/product/stote/useProductsStore";
 
-export const FilterByCategory = ({categories}: FilterByCategoryProps) => {
-    const [activeCategory, setActiveCategory] = useState<string | null>(null);
+export const FilterByCategory = ({categories, filterCategories}: FilterByCategoryProps) => {
+    const {selectedCategory, setCategory} = useProductsStore()
 
     return (
         <div className={styles.container}>
@@ -14,10 +14,10 @@ export const FilterByCategory = ({categories}: FilterByCategoryProps) => {
                     <button
                         key={index}
                         className={`${styles.categoryButton} ${
-                            activeCategory === category ? styles.active : ''
+                            selectedCategory === category ? styles.active : ''
                         }`}
                         onClick={() => {
-                            setActiveCategory(category);
+                            setCategory(category);
                         }}
                     >
                         {category}

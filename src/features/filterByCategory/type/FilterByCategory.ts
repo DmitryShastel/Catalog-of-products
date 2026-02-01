@@ -3,4 +3,5 @@ export type Categories = Category[];
 
 export type FilterByCategoryProps = {
     categories: Categories;
+    filterCategories: string[]
 }
