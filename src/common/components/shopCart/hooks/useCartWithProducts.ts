@@ -1,44 +1,12 @@
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 import {axiosInstance} from "../../../../shared/api/axiosInstance";
+import {
+    type CartProductWithDetails,
+    type CartResponse,
+    type CartWithProducts,
+    type Product
+} from "./type/CartWithProducts";
 
-type CartProduct = {
-    productId: number;
-    quantity: number;
-}
-
-type CartResponse = {
-    id: number;
-    userId: number;
-    date: string;
-    products: CartProduct[];
-    __v: number;
-}
-
-type Product = {
-    id: number;
-    title: string;
-    price: number;
-    description: string;
-    category: string;
-    image: string;
-    rating: {
-        rate: number;
-        count: number;
-    };
-}
-
-type CartProductWithDetails = CartProduct & {
-    productDetails: Product | null;
-}
-
-type CartWithProducts =  {
-    cart: CartResponse | null;
-    products: CartProductWithDetails[];
-    totalCartItems: number;
-    totalPrice: number;
-    isLoading: boolean;
-    error: string | null;
-}
 
 export const useCartWithProducts = (cartId: number = 1) => {
     const [state, setState] = useState<CartWithProducts>({
@@ -53,7 +21,7 @@ export const useCartWithProducts = (cartId: number = 1) => {
     useEffect(() => {
         const fetchCartWithProducts = async () => {
             try {
-                setState(prev => ({ ...prev, isLoading: true, error: null }));
+                setState(prev => ({...prev, isLoading: true, error: null}));
 
                 const cartResponse = await axiosInstance.get<CartResponse>(`/carts/${cartId}`);
                 const cart = cartResponse.data;
@@ -68,7 +36,8 @@ export const useCartWithProducts = (cartId: number = 1) => {
                             productDetails: productResponse.data
                         });
                     } catch (error) {
-                        console.error(`Error fetching product ${cartProduct.productId}:`, error);}
+                        console.error(`Error fetching product ${cartProduct.productId}:`, error);
+                    }
                 }
 
                 const totalCartItems = productsWithDetails.reduce((sum, item) => sum + item.quantity, 0);

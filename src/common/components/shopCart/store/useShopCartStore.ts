@@ -1,27 +1,7 @@
 import { create } from 'zustand';
 import {axiosInstance} from "../../../../shared/api/axiosInstance";
 import {persist} from "zustand/middleware";
-
-type CartProduct = {
-    productId: number;
-    quantity: number;
-}
-
-type CartResponse = {
-    id: number;
-    userId: number;
-    date: string;
-    products: CartProduct[];
-    __v: number;
-}
-
-type CartStore = {
-    cart: CartResponse | null;
-    isLoading: boolean;
-    fetchCart: () => Promise<void>;
-    getTotalItems: () => number;
-    totalItems: number;
-}
+import {type CartResponse, type CartStore} from "./type/CartStore";
 
 
 export const useCartStore = create<CartStore>()(

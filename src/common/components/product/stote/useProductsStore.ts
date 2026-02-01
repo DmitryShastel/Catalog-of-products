@@ -1,22 +1,7 @@
 import {create} from "zustand/react";
 import {type Product} from "../type/product";
 import {axiosInstance} from "../../../../shared/api/axiosInstance";
-
-type SortDirection = 'asc' | 'desc' | null
-
-type ProductsStore = {
-    products: Product[]
-    isLoading: boolean
-    searchItem: string;
-    selectedCategory: string;
-    sortByPrice: SortDirection;
-    fetchProducts: () => Promise<void>
-    setSearchTerm: (searchItem: string) => void;
-    fetchProductsByCategory: (category: string) => Promise<void>
-    setCategory: (category: string) => void
-    getSortedProducts: () => Product[]
-    setSortByPrice: (direction: SortDirection) => void
-}
+import {type ProductsStore, type SortDirection} from "./type/ProductsStore";
 
 export const useProductsStore = create<ProductsStore>((set, get) => ({
     products: [],

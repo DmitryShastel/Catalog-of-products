@@ -2,12 +2,8 @@ import {useState} from 'react';
 import styles from './countOfProduct.module.css';
 import {toast} from "react-toastify";
 import {useCartStore} from "../../common/components/shopCart/store/useShopCartStore";
+import {type CountOfProductProps} from "./type/CountOfProductProps";
 
-type CountOfProductProps = {
-    onCountChange?: (count: number) => void;
-    productId: number;
-    productTitle: string
-}
 
 export const CountOfProduct = ({
                                    onCountChange,
@@ -19,13 +15,11 @@ export const CountOfProduct = ({
 
     const handleAddToCart = () => {
         increaseTotalItems(count)
-
         toast.success(`${count}:  ${productTitle} added to cart!`, {
             position: "top-right",
             autoClose: 3000,
         });
     };
-
 
     const handleDecrement = () => {
         if (count > 1) {

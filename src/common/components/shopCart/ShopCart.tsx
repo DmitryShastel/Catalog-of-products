@@ -3,6 +3,7 @@ import {useNavigate} from "react-router";
 import {Loader} from "../../../shared/components/ui/loader/Loader";
 import {useCartWithProducts} from "./hooks/useCartWithProducts";
 import {useCartQuantity} from "../shopCartItem/hooks/useCartQuantity";
+import {toast} from "react-toastify";
 
 
 export const ShopCart = () => {
@@ -22,6 +23,10 @@ export const ShopCart = () => {
     const handleCatalogBack = () => {
         navigate('/', {replace: true})
     }
+
+    const handleProceedToCheckout = () => {
+        toast.error('Checkout not released yet!');
+    };
 
     if (isLoading) {
         return <Loader />;
@@ -155,7 +160,7 @@ export const ShopCart = () => {
                             <span>Total price:</span>
                             <span className={styles.totalPrice}>${totalPrice.toFixed(2)}</span>
                         </div>
-                        <button className={styles.checkoutBtn}>
+                        <button onClick={handleProceedToCheckout} className={styles.checkoutBtn}>
                             Proceed to Checkout
                         </button>
                     </div>
