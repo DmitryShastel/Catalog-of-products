@@ -6,16 +6,16 @@ import {Pagination} from "../../../features/pagination/Pagination";
 import {categories} from "../../../shared/data/productCategories/ProductCategories";
 import {useState} from "react";
 import {useProductsStore} from "../product/stote/useProductsStore";
+import {useSearchProducts} from "../header/hooks/useSearchProducts";
 
 
 export const Main = () => {
     const [currentPage, setCurrentPage] = useState<number>(1)
-    const {products} = useProductsStore()
+    const {products, searchItem} = useProductsStore()
     const productsPerPage = 12
+    const filteredProducts = useSearchProducts(products, searchItem)
 
-    console.log(products)
-
-    const totalPages = Math.ceil(products.length / productsPerPage)
+    const totalPages = Math.ceil(filteredProducts.length / productsPerPage)
 
     const handelPageChange = (nextPage: number) => {
         setCurrentPage(nextPage)
@@ -30,8 +30,10 @@ export const Main = () => {
             <Product
                 currentPage={currentPage}
                 productsPerPage={productsPerPage}
+                filteredProducts={filteredProducts}
+                searchItem={searchItem}
             />
-            {products.length > productsPerPage && (
+            {filteredProducts.length > productsPerPage && (
                 <div className={styles.pagination}>
                     <Pagination
                         totalPages={totalPages}

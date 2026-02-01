@@ -5,12 +5,15 @@ import {axiosInstance} from "../../../../shared/api/axiosInstance";
 type ProductsStore = {
     products: Product[]
     isLoading: boolean
+    searchItem: string;
     fetchProducts: () => Promise<void>
+    setSearchTerm: (searchItem: string) => void;
 }
 
 export const useProductsStore = create<ProductsStore>((set) => ({
     products: [],
     isLoading: false,
+    searchItem: '',
 
     fetchProducts: async () => {
 
@@ -24,5 +27,9 @@ export const useProductsStore = create<ProductsStore>((set) => ({
             set({isLoading: false});
             console.error("Error fetching products:", error)
         }
+    },
+
+    setSearchItem: (Item: string) => {
+        set({ searchItem: Item })
     }
 }))

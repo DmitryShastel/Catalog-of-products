@@ -16,4 +16,6 @@ export type Product  = {
 export type ProductPagination = {
     currentPage: number
     productsPerPage: number
+    filteredProducts:Product[]
+    searchItem: string
 }
