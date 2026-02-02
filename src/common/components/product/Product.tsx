@@ -16,9 +16,7 @@ export const Product = ({
     const {fetchProducts, isLoading, selectedCategory} = useProductsStore()
 
     useEffect(() => {
-        fetchProducts().catch(error => {
-            console.error("Failed to fetch products:", error)
-        })
+        fetchProducts()
     }, [])
 
     if (isLoading) {
